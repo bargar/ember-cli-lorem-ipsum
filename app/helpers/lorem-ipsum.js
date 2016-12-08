@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var originalText = 
+var originalText =
 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '+
 'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '+
 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut '+
@@ -19,13 +19,13 @@ export function loremIpsum(params, hash) {
       text = text.substring(0, hash.length);
     } else {
       var result = '',
-          repeatN = hash.length / text.length; 
+          repeatN = hash.length / text.length;
 
       for (var i = 0; i < repeatN; i++) {
         result += text;
         result += (i === repeatN-1) ? '' : '. ';
       }
-      var remainder = hash.length % text.length; 
+      var remainder = hash.length % text.length;
       result += text.substring(0, remainder);
       text = result;
     }
@@ -33,8 +33,7 @@ export function loremIpsum(params, hash) {
 
   text += '.';
 
-  return new Ember.Handlebars
-                  .SafeString('<p class="lorem_ipsum">' + text + '</p>');
+  return Ember.String.htmlSafe('<p class="lorem_ipsum">' + text + '</p>');
 }
 
 export default Ember.HTMLBars.makeBoundHelper(loremIpsum);
