@@ -36,4 +36,4 @@ export function loremIpsum(params, hash) {
   return Ember.String.htmlSafe('<p class="lorem_ipsum">' + text + '</p>');
 }
 
-export default Ember.HTMLBars.makeBoundHelper(loremIpsum);
+export default Ember.Helper.helper(loremIpsum);
